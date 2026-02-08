@@ -8,19 +8,19 @@
 
 export const IMAGES = {
   // Main avatar used in the About section
-  AVATAR: "./assets/visual/avatar.png",
+  AVATAR: "/visual/avatar.png",
   
   // Project thumbnails
   PROJECTS: {
-    ANIX_X: "./assets/projects/anixartx.png",
-    MELOMASH: "./assets/projects/melomash.png",
+    ANIX_X: "/projects/anixartx.png",
+    MELOMASH: "/projects/melomash.png",
     SHADOW: "https://picsum.photos/seed/shadow/800/600",
   },
   
   // Side Decorative Panels (New)
   SIDE_DECOR: {
-    LEFT: "./assets/visual/left.png", // Abstract Tech Dark
-    RIGHT: "./assets/visual/right.png", // Abstract Tech Dark 2
+    LEFT: "/visual/left.png", // Abstract Tech Dark
+    RIGHT: "/visual/right.png", // Abstract Tech Dark 2
   },
   
   // External Patterns or Backgrounds
