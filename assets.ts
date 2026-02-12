@@ -6,6 +6,8 @@
  * Using descriptive variables makes the code more maintainable and easier to update.
  */
 
+import { Monitor } from "lucide-react";
+
 export const IMAGES = {
   // Main avatar used in the About section
   AVATAR: "/visual/avatar.png",
@@ -14,7 +16,7 @@ export const IMAGES = {
   PROJECTS: {
     ANIX_X: "/projects/anixartx.png",
     MELOMASH: "/projects/melomash.png",
-    SHADOW: "https://picsum.photos/seed/shadow/800/600",
+    SENTINEL: "/projects/sentinel.png",
   },
   
   // Side Decorative Panels (New)

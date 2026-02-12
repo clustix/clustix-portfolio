@@ -267,7 +267,7 @@ const App: React.FC = () => {
                     <h2 className="text-5xl font-black uppercase italic tracking-tighter mb-2">{t('projects_title')} <span className="text-red-600">{t('projects_title_accent')}</span></h2>
                     <p className="mono text-[10px] text-neutral-500 uppercase tracking-widest">{t('projects_desc')}</p>
                   </div>
-                  <a href="#" className="text-red-600 mono text-xs uppercase font-bold border-b border-red-600/20 pb-1 hover:border-red-600 transition-all">
+                  <a href="https://github.com/clustix?tab=repositories" className="text-red-600 mono text-xs uppercase font-bold border-b border-red-600/20 pb-1 hover:border-red-600 transition-all">
                     {t('projects_view_all')}
                   </a>
                 </div>
@@ -302,13 +302,13 @@ const App: React.FC = () => {
                     </p>
                     
                     <div className="flex flex-col gap-6">
-                      <a href="mailto:contact@clustix.dev" className="flex items-center gap-4 group w-fit">
+                      <a href="mailto:clustix.dev@gmail.com" className="flex items-center gap-4 group w-fit">
                         <div className="w-12 h-12 flex items-center justify-center bg-white/5 border border-white/10 group-hover:border-red-600 group-hover:bg-red-600 transition-all duration-300">
                           <Mail size={20} className="group-hover:text-white" />
                         </div>
                         <div>
                           <span className="block text-[10px] mono text-neutral-600 uppercase">{t('contact_email_label')}</span>
-                          <span className="text-lg font-bold group-hover:text-red-500 transition-colors">contact@clustix.dev</span>
+                          <span className="text-lg font-bold group-hover:text-red-500 transition-colors">clustix.dev@gmail.com</span>
                         </div>
                       </a>
 

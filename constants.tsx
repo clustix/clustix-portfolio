@@ -25,13 +25,13 @@ export const PROJECTS: (Project & { descKey: string })[] = [
   },
   {
     id: 3,
-    title: "Shadow Server",
+    title: "Sentinel",
     description: "",
-    descKey: "project_shadow_desc",
-    tags: ["Python", "Socket.io", "Redis"],
-    githubUrl: "#",
+    descKey: "project_sentinel_desc",
+    tags: ["Python", "TypeScript", "System API"],
+    githubUrl: "https://github.com/clustix/Sentinel",
     demoUrl: "#",
-    image: IMAGES.PROJECTS.SHADOW
+    image: IMAGES.PROJECTS.SENTINEL
   }
 ];
 
@@ -39,12 +39,12 @@ export const projectTranslations = {
   en: {
     "project_anix_desc": "Desktop client Anixart for Windows featuring advanced customization, API integration, and performance optimizations.",
     "project_melomash_desc": "A lightweight yet powerful desktop application designed to unify disparate music streaming platforms into a single, seamless environment.",
-    project_shadow_desc: "Distributed backend architecture for real-time multiplayer applications using Python WebSockets."
+    "project_sentinel_desc": "A lightweight system resource monitor and infrastructure management tool. Streamlines local development by visualizing system health and automating routine maintenance tasks via a web UI.",
   },
   ru: {
-    project_anix_desc: 'Альтернативный клиент Anixart для Windows. Оптимизированный интерфейс, расширенная кастомизация и работа с API сервиса.',
+    "project_anix_desc": 'Альтернативный клиент Anixart для Windows. Оптимизированный интерфейс, расширенная кастомизация и работа с API сервиса.',
     "project_melomash_desc": "Легковесное и мощное настольное приложение, объединяющее разрозненные музыкальные стриминговые платформы в единую удобную среду.",
-    project_shadow_desc: "Распределенная бэкенд-архитектура для многопользовательских приложений на Python WebSockets."
+    "project_sentinel_desc": "Легковесный монитор системных ресурсов и управления локальной инфраструктурой. Позволяет контролировать состояние системы и автоматизировать рутинные задачи обслуживания через веб-интерфейс.",
   }
 };
 
