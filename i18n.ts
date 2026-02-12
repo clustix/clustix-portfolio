@@ -59,6 +59,8 @@ export const translations = {
     contact_form_placeholder_name: 'Your name',
     contact_form_placeholder_msg: 'Describe your project or inquiry...',
     contact_form_btn: 'Send Message',
+    contact_form_sending: 'Transmitting...',
+    contact_form_success: 'Transmission Complete',
     
     footer_text: 'Developed by',
     footer_status: 'System Ver: 4.0.0-Stable'
@@ -113,6 +115,8 @@ export const translations = {
     contact_form_placeholder_name: 'Введите ваше имя',
     contact_form_placeholder_msg: 'Краткое описание задачи или вопрос...',
     contact_form_btn: 'Отправить запрос',
+    contact_form_sending: 'Отправка...',
+    contact_form_success: 'Успешно отправлено',
     
     footer_text: 'Developed by',
     footer_status: 'System Ver: 4.0.0-Stable'

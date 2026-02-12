@@ -2,6 +2,10 @@
 import { Project, Skill } from './types';
 import { IMAGES } from './assets';
 
+/**
+ * PROJECTS / ПРОЕКТЫ
+ * Здесь перечислены проекты. Описания теперь вынесены в словарь i18n для поддержки мультиязычности.
+ */
 export const PROJECTS: (Project & { descKey: string })[] = [
   {
     id: 1,
@@ -54,5 +58,5 @@ export const SKILLS: Skill[] = [
   { name: "React", level: 92, icon: "Layers" },
   { name: "Tailwind CSS", level: 90, icon: "Layout" },
   { name: "Java Script", level: 65, icon: "Coffee" },
-  { name: "Typescript", level: 85, icon: "FileCodeIcon" },
+  { name: "Typescript", level: 85, icon: "FileCode" },
 ];

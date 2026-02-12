@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
+import emailjs from '@emailjs/browser';
 import { 
   Github, 
   Linkedin, 
@@ -32,6 +33,11 @@ const App: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isGhoulMode, setIsGhoulMode] = useState(false);
   
+  // Form State
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSending, setIsSending] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  
   const sections = ['home', 'about', 'skills', 'projects', 'game', 'contact'] as const;
 
   // Функция перевода
@@ -62,6 +68,41 @@ const App: React.FC = () => {
 
   const toggleGhoulMode = () => setIsGhoulMode(!isGhoulMode);
   const toggleLanguage = () => setLang(prev => prev === 'en' ? 'ru' : 'en');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isSending) return;
+
+    setIsSending(true);
+    
+    try {
+      await emailjs.send(
+        (import.meta as any).env.VITE_EMAIL_SERVICE_ID || 'service_id',
+        (import.meta as any).env.VITE_EMAIL_TEMPLATE_ID || 'template_id',
+        {
+          from_name: formData.name,
+          reply_to: formData.email,
+          message: formData.message,
+          to_name: 'Clustix',
+        },
+        (import.meta as any).env.VITE_EMAIL_PUBLIC_KEY || 'public_key'
+      );
+      
+      setIsSuccess(true);
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      alert('Failed to send message. Please try again later.');
+    } finally {
+      setIsSending(false);
+    }
+  };
 
   const navItemClass = (section: string) => `
     relative uppercase tracking-widest text-[10px] mono py-2 px-1 transition-all duration-300
@@ -330,11 +371,15 @@ const App: React.FC = () => {
                   </div>
 
                   <div className="bg-black p-10 border border-white/5 relative group shadow-2xl">
-                    <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+                    <form className="flex flex-col gap-6" onSubmit={handleFormSubmit}>
                       <div>
                         <label className="block mono text-[10px] text-neutral-600 uppercase mb-2">{t('contact_form_name')}</label>
                         <input 
                           type="text" 
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          required
                           className="w-full bg-neutral-950 border border-white/10 px-4 py-3 focus:outline-none focus:border-red-600 transition-all"
                           placeholder={t('contact_form_placeholder_name')}
                         />
@@ -343,6 +388,10 @@ const App: React.FC = () => {
                         <label className="block mono text-[10px] text-neutral-600 uppercase mb-2">{t('contact_form_email')}</label>
                         <input 
                           type="email" 
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          required
                           className="w-full bg-neutral-950 border border-white/10 px-4 py-3 focus:outline-none focus:border-red-600 transition-all"
                           placeholder="EMAIL@EXAMPLE.COM"
                         />
@@ -350,13 +399,21 @@ const App: React.FC = () => {
                       <div>
                         <label className="block mono text-[10px] text-neutral-600 uppercase mb-2">{t('contact_form_msg')}</label>
                         <textarea 
+                          name="message"
+                          value={formData.message}
+                          onChange={handleInputChange}
+                          required
                           rows={4} 
                           className="w-full bg-neutral-950 border border-white/10 px-4 py-3 focus:outline-none focus:border-red-600 transition-all resize-none"
                           placeholder={t('contact_form_placeholder_msg')}
                         ></textarea>
                       </div>
-                      <button className="w-full bg-white text-black font-black uppercase tracking-widest py-4 hover:bg-red-600 hover:text-white transition-all transform hover:-translate-y-1 active:scale-95">
-                        {t('contact_form_btn')}
+                      <button 
+                        type="submit"
+                        disabled={isSending}
+                        className={`w-full font-black uppercase tracking-widest py-4 transition-all transform hover:-translate-y-1 active:scale-95 ${isSuccess ? 'bg-green-600 text-white' : 'bg-white text-black hover:bg-red-600 hover:text-white'} ${isSending ? 'opacity-70 cursor-not-allowed' : ''}`}
+                      >
+                        {isSending ? t('contact_form_sending') : isSuccess ? t('contact_form_success') : t('contact_form_btn')}
                       </button>
                     </form>
                   </div>
