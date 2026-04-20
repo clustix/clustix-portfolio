@@ -1,1 +1,1 @@
-![AnimePicture](https://avatars.mds.yandex.net/i?id=e3ae86e8e2c2bd8c6c62c881e8104e80_l-6948267-images-thumbs&n=33&w=580&h=828)
+![AnimePicture](https://images.steamusercontent.com/ugc/827945263930670895/B7BC3E76330B12E1BF8E10C3F3F86336B88154EB/?imw=5000&amp;imh=5000&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=false)
